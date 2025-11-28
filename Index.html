@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Aditi Sharma!</title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at 20% 20%, #ffd6ec, #ffb7c5, #f9c2ff, #fff6f4 80%);
+      font-family: 'Pacifico', cursive;
+      overflow-x: hidden;
+    }
+    .hearts {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .heart {
+      position: absolute;
+      width: 32px; height: 32px;
+      background: url('https://img.icons8.com/emoji/48/000000/purple-heart.png') no-repeat center;
+      animation: floatHearts 10s linear infinite;
+    }
+    @keyframes floatHearts {
+      from {transform: translateY(100vh);}
+      to {transform: translateY(-10vh);}
+    }
+    .center-box {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #balloon-container {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top:0; left:0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -60px;
+      width: 34px; height: 44px;
+      border-radius: 38% 38% 46% 46%;
+      opacity: 0.88;
+      box-shadow: 0 12px 22px #e7a5d7aa;
+      animation: balloonUp 8s linear forwards;
+    }
+    @keyframes balloonUp {
+      from { transform: translateY(0);}
+      to { transform: translateY(-110vh);}
+    }
+    .cake {
+      width: 260px;
+      height: 180px;
+      margin-top: 40px;
+      position: relative;
+      cursor: pointer;
+    }
+    .cake-base {
+      width: 260px;
+      height: 80px;
+      background: #e97b9f;
+      border-radius: 60px/20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 18px 32px rgba(137, 65, 118, 0.25);
+    }
+    .cake-top {
+      width: 230px;
+      height: 60px;
+      background: #fff0f7;
+      border-radius: 115px/30px;
+      position: absolute;
+      bottom: 60px;
+      left: 15px;
+      box-shadow: 0 8px 14px rgba(240, 185, 239, 0.18);
+    }
+    .candle {
+      width: 16px;
+      height: 32px;
+      background: #fad8a7;
+      border-radius: 8px;
+      position: absolute;
+      top: 8px;
+      left: 105px;
+      z-index: 2;
+    }
+    .flame {
+      width: 12px; height: 12px;
+      background: radial-gradient(circle, #ffe780 60%, #fdcf45 85%);
+      border-radius: 100%;
+      position: absolute;
+      top: -4px; left: 2px;
+      animation: flicker 1s infinite alternate;
+    }
+    @keyframes flicker {
+      0% { transform: scaleY(1);}
+      100% { transform: scaleY(1.15);}
+    }
+    .confetti {
+      position: absolute;
+      width: 220px;
+      height: 100px;
+      left: 20px;
+      top: -40px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .confetti-span {
+      position: absolute;
+      width: 12px; height: 12px;
+      border-radius: 100%;
+      animation: dropConfetti 2.5s infinite;
+      opacity: 0.8;
+    }
+    @keyframes dropConfetti {
+      from { transform: translateY(0);}
+      to { transform: translateY(100px);}
+    }
+    h1 {
+      color: #d95fbe;
+      font-size: 3.2rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 1px 2px 8px #fff2f8;
+      letter-spacing: 2px;
+    }
+    .wish {
+      font-size: 1.8rem;
+      color: #913C7C;
+      margin: 16px 0;
+      max-width: 420px;
+      line-height: 1.2;
+      text-align: center;
+      background: rgba(255,245,255,0.35);
+      border-radius: 24px;
+      padding: 0.8em 1.2em;
+      box-shadow: 0 5px 22px rgba(137,65,119,0.12);
+      font-family: 'Pacifico', cursive;
+    }
+    @media (max-width: 540px) {
+      h1 { font-size: 2.1rem;}
+      .wish { font-size: 1.1rem;}
+      .cake { width: 150px; height: 100px;}
+      .cake-base { width: 150px; height: 45px;}
+      .cake-top { width: 125px; height: 32px; left: 12px; bottom: 30px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Hearts Background -->
+  <div class="hearts"></div>
+  <!-- Floating Balloons -->
+  <div id="balloon-container"></div>
+  <div class="center-box">
+    <h1>Happy Birthday, Aditi Sharma!</h1>
+    <div class="wish">Wishing you a day filled with joy, laughter, and endless love. You are the brightest star in my sky. Happy birthday to my best friend!</div>
+    <div class="cake" onclick="burstConfetti()">
+      <div class="cake-base"></div>
+      <div class="cake-top"></div>
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+      <div class="confetti" id="confetti"></div>
+    </div>
+    <div class="wish" style="margin-top: 24px;">
+      Lots of love and hugs on your special day! <br>
+      -- From Himanshu Tyagi 💖
+    </div>
+  </div>
+  <script>
+    // Hearts floating animation
+    function addHearts() {
+      const heartsContainer = document.querySelector('.hearts');
+      for (let i = 0; i < 24; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 96 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.animationDelay = (Math.random()*10) + 's';
+        heartsContainer.appendChild(heart);
+      }
+    }
+    addHearts();
+
+    // Floating Balloons Animation
+    function randomColor() {
+      const colors = ['#ffb7c5','#ffd6ec','#fad8a7','#e97b9f','#913c7c'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.background = randomColor();
+      balloon.style.left = Math.random() * 97 + 'vw';
+      balloon.style.animationDuration = (6 + Math.random()*3)+'s';
+      document.getElementById('balloon-container').appendChild(balloon);
+      balloon.addEventListener('animationend', ()=> balloon.remove());
+    }
+    setInterval(createBalloon, 700);
+
+    // Confetti on cake click
+    function burstConfetti() {
+      const confettiContainer = document.getElementById('confetti');
+      confettiContainer.innerHTML = '';
+      for (let i = 0; i < 18; i++) {
+        const confetti = document.createElement('span');
+        confetti.className = 'confetti-span';
+        confetti.style.background = ['#ffafd5','#fad8a7','#e97b9f','#913c7c','#f9c2ff'][Math.floor(Math.random() * 5)];
+        confetti.style.left = Math.random() * 200 + 'px';
+        confetti.style.top = (Math.random() * 35) + 'px';
+        confetti.style.animationDelay = (Math.random() * 1) + 's';
+        confettiContainer.appendChild(confetti);
+      }
+      setTimeout(() => confettiContainer.innerHTML = '', 2600);
+    }
+    // Add confetti once on page load for festivity
+    burstConfetti();
+  </script>
+</body>
+</html>
